@@ -5,9 +5,40 @@ body {
 
 #container {
 	width: 100%;
-	background: red;
+}
+
+#header {
+	margin-top: 30px;
+	border-bottom: 3px blue;
 }
 
 #header-text {
 	text-align: center;
+	font-family: "Roboto";
+	font-weight: 300;
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+#page-title {
+	text-align: center;
+	font-family: "Roboto";
+	font-weight: 700;
+	font-size: 44px;
+}
+
+#main-content {
+	margin-top: 20px;
+}
+
+.option-entry {
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.option-field {
+	border: 0px;
+	font-size: 24px;
+	border-bottom: 1px solid black;
 }
