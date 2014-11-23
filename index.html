@@ -7,8 +7,10 @@
 	<!-- CSS links -->
 	<link rel="stylesheet" type="text/css" href="reset.css" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
-	<!-- Roboto link -->
+	<!-- JS link -->
+	<!-- Fonts link -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="container">
@@ -17,13 +19,17 @@
 			<h1 id="page-title">Let Simon decide.</p>
 		</div>
 		<div id="main-content">
-			<div class="option-entry">
-				<input class="option-field" type="text"></input>
+			<div class="option-entry" id="opt1">
+				<input class="option-field" type="text" id="opt1id"></input>
 			</div>
 		</div>
 		<div id="footer">
-
+			<div id="button-container">
+				<button id="decision">Ask Simon</button>
+			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+<script src="active.js"></script>	
 </html>
