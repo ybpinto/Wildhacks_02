@@ -2,6 +2,7 @@ body {
 	max-width: 900px;
 	margin: 0 auto;
 	background: orange;
+	color: white;
 }
 
 #container {
@@ -79,4 +80,23 @@ button {
 	background: red;
 	border-radius: 10px;
 	color: white;
+}
+
+#result {
+	display: none;
+}
+
+#simon-text {
+]	font-size: 48px;
+	font-weight: 700;
+	font-family: "Roboto";
+	margin-left: 10%; 
+}
+
+#result-text {
+	font-size: 64px;
+	font-weight: 400;
+	font-family: "Montserrat";
+	margin: 3% auto;
+	text-align: center; 
 }

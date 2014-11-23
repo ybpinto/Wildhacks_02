@@ -1,39 +1,96 @@
-$(document).ready(function() {
+counter = 0;
+ENTER = 13;
+BACKSPACE = 8;
 
-  counter = 1;
-  obj = "#opt" + counter + "id";
+$('body').on('keydown','.option-field', function(e) {
+  console.log("within function.");
+  console.log(counter);
 
-  ENTER = 13;
-  BACKSPACE = 8;
+  console.log($("#opt" + counter.toString() + "id").val());
 
-   $(".option-field").keyup(function(e) {
-    
-    console.log(e);
-    console.log("#opt" + counter + "id");
+  if (e.which == ENTER) { // if enter is pressed
 
-    pressed = e.which;
+    console.log("etr fired");
 
-    if (pressed == ENTER) { // if enter is pressed
-      
-      console.log("etr fired");
-      counter++; 
+    counter++; 
+    var counterString = counter.toString();
+    console.log("counter increase");
+    console.log(counter);
 
-      str = "<div class=\"option-entry\"id=\"opt" + counter + "\"><input class=\"option-field\" type=\"text\" id=\"opt" + counter + "id\"></input></div>";
-      $("#main-content").append(str); //add another text box, shortcut instead of having an add button
-      $("#opt" + counter + "id").focus();
+    myDiv = document.createElement("div");  
+    $(myDiv).addClass("option-entry");
+    $(myDiv).attr('id', 'opt' + counterString);
 
-      obj = "#opt" + counter + "id";
-    } 
-    else if (pressed == BACKSPACE && $("#opt" + counter + "id").text() == "") { // if backspace is pressed and last box is empty
-    
-      console.log("bs fired");
+    inp = document.createElement("input");
+    $(inp).addClass("option-field");
+    $(inp).attr('id', "opt" + counterString + "id");
 
-      $("#opt" + counter).remove(); // remove box
-      counter--; // decrement counter
+    $(myDiv).append(inp);
+    $("#main-content").append(myDiv);
 
-      obj = "#opt" + counter + "id";
-    }
+    $("#opt" + counterString + "id").focus();
 
-  })
+  } 
+  else if (counter > 0 && $("#opt" + counter.toString() + "id").val() == "" && e.which == BACKSPACE) { // if backspace is pressed and last box is empty
+  
+    console.log("bs fired");
 
-})
+    var counterString = counter.toString();
+
+    $("#opt" + counterString).remove(); // remove box
+    console.log("#opt" + counter.toString() + "id");
+    console.log("remove fired");
+    counter--; // decrement counter
+    console.log("counter decrease");
+    console.log(counter);
+
+    $("#opt" + counter.toString() + "id").focus();
+
+  }
+});
+
+function getRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+$("#decision").click(function() {
+  var strs = new Array();
+
+  for (var i = 0; i <= counter; i++) {
+    var text = $("#opt" + i.toString() + "id").val();
+    strs.push(text);
+    console.log(text);
+  };
+
+  var rand = getRandomInt(0, strs.length-1);
+  console.log("randno: " + rand);
+  var res = strs[rand];
+  console.log("result: " + res);
+
+  console.log(strs);
+
+  $(".option-entry").fadeOut();
+  $("#decision").fadeOut();
+
+  $("#result-text").append(res);
+
+  $("#goback").fadeIn();
+  $("#result").fadeIn();
+
+});
+
+$("#goback").click(function() {
+  for (var i = 1; i <= counter; i++) {
+    $("#opt" + i.toString()).remove();
+  };
+  counter = 0;
+  strs = [];
+  $("#result-text").empty();
+
+  $("#opt0id").val("");
+  $(".option-entry").fadeIn();
+  $("#decision").fadeIn();
+
+  $("#goback").fadeOut();
+  $("#result").fadeOut();
+});
