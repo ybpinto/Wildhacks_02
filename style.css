@@ -100,3 +100,15 @@ button {
 	margin: 3% auto;
 	text-align: center; 
 }
+
+#logo {
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;	
+	width: 30%;
+}
+/**/
+img {
+	width:70%;
+	text-align: center;
+}
