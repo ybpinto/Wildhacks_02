@@ -69,13 +69,14 @@ $("#decision").click(function() {
 
   console.log(strs);
 
-  $(".option-entry").fadeOut();
-  $("#decision").fadeOut();
+  $(".option-entry").fadeOut(25);
+  $("#decision").fadeOut(25);
+  $("#logo").fadeOut(25);
 
   $("#result-text").append(res);
 
-  $("#goback").fadeIn();
-  $("#result").fadeIn();
+  $("#goback").fadeIn(1200);
+  $("#result").fadeIn(1200);
 
 });
 
@@ -88,9 +89,10 @@ $("#goback").click(function() {
   $("#result-text").empty();
 
   $("#opt0id").val("");
-  $(".option-entry").fadeIn();
-  $("#decision").fadeIn();
+  $(".option-entry").fadeIn(1200);
+  $("#decision").fadeIn(1200);
+  $("#logo").fadeIn(1200);
 
-  $("#goback").fadeOut();
-  $("#result").fadeOut();
+  $("#goback").fadeOut(25);
+  $("#result").fadeOut(25);
 });
