@@ -3,12 +3,17 @@ $(document).ready(function() {
   counter = 1;
   obj = "#opt" + counter + "id";
 
-   $(obj).keyup(function(e) {
+  ENTER = 13;
+  BACKSPACE = 8;
+
+   $(".option-field").keyup(function(e) {
     
     console.log(e);
     console.log("#opt" + counter + "id");
 
-    if (e.which == 13) { // if enter is pressed
+    pressed = e.which;
+
+    if (pressed == ENTER) { // if enter is pressed
       
       console.log("etr fired");
       counter++; 
@@ -19,7 +24,7 @@ $(document).ready(function() {
 
       obj = "#opt" + counter + "id";
     } 
-    else if (e.which == 8 && $("#opt" + counter + "id").text() == "") { // if backspace is pressed and last box is empty
+    else if (pressed == BACKSPACE && $("#opt" + counter + "id").text() == "") { // if backspace is pressed and last box is empty
     
       console.log("bs fired");
 
